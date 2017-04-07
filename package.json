@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"url-pattern",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "url-pattern",
+    "description": "api documentation for [url-pattern (v1.0.3)](http://github.com/snd/url-pattern) [![npm package](https://img.shields.io/npm/v/npmdoc-url-pattern.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-url-pattern) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-url-pattern.svg)](https://travis-ci.org/npmdoc/node-npmdoc-url-pattern)",
     "devDependencies": {
-        "url-pattern": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "url-pattern": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-url-pattern",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-url-pattern",
+    "keywords": [
+        "documentation",
+        "url-pattern"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_url_pattern.js",
+    "name": "npmdoc-url-pattern",
+    "nameAlias": "npmdoc_url_pattern",
+    "nameOriginal": "npmdoc-url-pattern",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-url-pattern"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
