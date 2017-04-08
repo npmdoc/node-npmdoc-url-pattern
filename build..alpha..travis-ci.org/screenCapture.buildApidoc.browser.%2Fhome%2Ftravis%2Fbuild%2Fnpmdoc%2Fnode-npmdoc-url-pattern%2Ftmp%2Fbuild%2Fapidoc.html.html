@@ -1,0 +1,898 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://github.com/snd/url-pattern">url-pattern (v1.0.3)</a>
+</h1>
+<h4>easier than regex string matching patterns for urls and other strings. turn strings into data or data into strings.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.url-pattern">module url-pattern</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.astNodeContainsSegmentsForProvidedParams">
+            function <span class="apidocSignatureSpan">url-pattern.</span>astNodeContainsSegmentsForProvidedParams
+            <span class="apidocSignatureSpan">(astNode, params, nextIndexes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.astNodeToNames">
+            function <span class="apidocSignatureSpan">url-pattern.</span>astNodeToNames
+            <span class="apidocSignatureSpan">(astNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.astNodeToRegexString">
+            function <span class="apidocSignatureSpan">url-pattern.</span>astNodeToRegexString
+            <span class="apidocSignatureSpan">(astNode, segmentValueCharset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.concatMap">
+            function <span class="apidocSignatureSpan">url-pattern.</span>concatMap
+            <span class="apidocSignatureSpan">(array, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.escapeForRegex">
+            function <span class="apidocSignatureSpan">url-pattern.</span>escapeForRegex
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.getParam">
+            function <span class="apidocSignatureSpan">url-pattern.</span>getParam
+            <span class="apidocSignatureSpan">(params, key, nextIndexes, sideEffects)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.keysAndValuesToObject">
+            function <span class="apidocSignatureSpan">url-pattern.</span>keysAndValuesToObject
+            <span class="apidocSignatureSpan">(keys, values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.newParser">
+            function <span class="apidocSignatureSpan">url-pattern.</span>newParser
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.regexGroupCount">
+            function <span class="apidocSignatureSpan">url-pattern.</span>regexGroupCount
+            <span class="apidocSignatureSpan">(regex)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.stringConcatMap">
+            function <span class="apidocSignatureSpan">url-pattern.</span>stringConcatMap
+            <span class="apidocSignatureSpan">(array, f)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.stringify">
+            function <span class="apidocSignatureSpan">url-pattern.</span>stringify
+            <span class="apidocSignatureSpan">(astNode, params, nextIndexes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">url-pattern.</span>P</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">url-pattern.</span>defaultOptions</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.url-pattern.P">module url-pattern.P</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.Result">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>Result
+            <span class="apidocSignatureSpan">(value, rest)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.Tagged">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>Tagged
+            <span class="apidocSignatureSpan">(tag, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.baseMany">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>baseMany
+            <span class="apidocSignatureSpan">(parser, end, stringResult, atLeastOneResultRequired, input)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.concatMany1Till">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>concatMany1Till
+            <span class="apidocSignatureSpan">(parser, end)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.firstChoice">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>firstChoice
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.lazy">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>lazy
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.many1">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>many1
+            <span class="apidocSignatureSpan">(parser)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.pick">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>pick
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.regex">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>regex
+            <span class="apidocSignatureSpan">(regex)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.sequence">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>sequence
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.string">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>string
+            <span class="apidocSignatureSpan">(string)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.P.tag">
+            function <span class="apidocSignatureSpan">url-pattern.P.</span>tag
+            <span class="apidocSignatureSpan">(tag, parser)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.url-pattern" id="apidoc.module.url-pattern">module url-pattern</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.astNodeContainsSegmentsForProvidedParams" id="apidoc.element.url-pattern.astNodeContainsSegmentsForProvidedParams">
+        function <span class="apidocSignatureSpan">url-pattern.</span>astNodeContainsSegmentsForProvidedParams
+        <span class="apidocSignatureSpan">(astNode, params, nextIndexes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">astNodeContainsSegmentsForProvidedParams = function (astNode, params, nextIndexes) {
+  var i, length;
+  if (Array.isArray(astNode)) {
+    i = -1;
+    length = astNode.length;
+    while (++i &lt; length) {
+      if (astNodeContainsSegmentsForProvidedParams(astNode[i], params, nextIndexes)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  switch (astNode.tag) {
+    case 'wildcard':
+      return getParam(params, '_', nextIndexes, false) != null;
+    case 'named':
+      return getParam(params, astNode.value, nextIndexes, false) != null;
+    case 'static':
+      return false;
+    case 'optional':
+      return astNodeContainsSegmentsForProvidedParams(astNode.value, params, nextIndexes);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.astNodeToNames" id="apidoc.element.url-pattern.astNodeToNames">
+        function <span class="apidocSignatureSpan">url-pattern.</span>astNodeToNames
+        <span class="apidocSignatureSpan">(astNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">astNodeToNames = function (astNode) {
+  if (Array.isArray(astNode)) {
+    return concatMap(astNode, astNodeToNames);
+  }
+  switch (astNode.tag) {
+    case 'wildcard':
+      return ['_'];
+    case 'named':
+      return [astNode.value];
+    case 'static':
+      return [];
+    case 'optional':
+      return astNodeToNames(astNode.value);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.astNodeToRegexString" id="apidoc.element.url-pattern.astNodeToRegexString">
+        function <span class="apidocSignatureSpan">url-pattern.</span>astNodeToRegexString
+        <span class="apidocSignatureSpan">(astNode, segmentValueCharset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">astNodeToRegexString = function (astNode, segmentValueCharset) {
+  if (segmentValueCharset == null) {
+    segmentValueCharset = defaultOptions.segmentValueCharset;
+  }
+  return '^' + baseAstNodeToRegexString(astNode, segmentValueCharset) + '$';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.concatMap" id="apidoc.element.url-pattern.concatMap">
+        function <span class="apidocSignatureSpan">url-pattern.</span>concatMap
+        <span class="apidocSignatureSpan">(array, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concatMap = function (array, f) {
+  var i, length, results;
+  results = [];
+  i = -1;
+  length = array.length;
+  while (++i &lt; length) {
+    results = results.concat(f(array[i]));
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.escapeForRegex" id="apidoc.element.url-pattern.escapeForRegex">
+        function <span class="apidocSignatureSpan">url-pattern.</span>escapeForRegex
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escapeForRegex = function (string) {
+  return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&amp;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.getParam" id="apidoc.element.url-pattern.getParam">
+        function <span class="apidocSignatureSpan">url-pattern.</span>getParam
+        <span class="apidocSignatureSpan">(params, key, nextIndexes, sideEffects)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getParam = function (params, key, nextIndexes, sideEffects) {
+  var index, maxIndex, result, value;
+  if (sideEffects == null) {
+    sideEffects = false;
+  }
+  value = params[key];
+  if (value == null) {
+    if (sideEffects) {
+      throw new Error("no values provided for key `" + key + "`");
+    } else {
+      return;
+    }
+  }
+  index = nextIndexes[key] || 0;
+  maxIndex = Array.isArray(value) ? value.length - 1 : 0;
+  if (index &gt; maxIndex) {
+    if (sideEffects) {
+      throw new Error("too few values provided for key `" + key + "`");
+    } else {
+      return;
+    }
+  }
+  result = Array.isArray(value) ? value[index] : value;
+  if (sideEffects) {
+    nextIndexes[key] = index + 1;
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.keysAndValuesToObject" id="apidoc.element.url-pattern.keysAndValuesToObject">
+        function <span class="apidocSignatureSpan">url-pattern.</span>keysAndValuesToObject
+        <span class="apidocSignatureSpan">(keys, values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">keysAndValuesToObject = function (keys, values) {
+  var i, key, length, object, value;
+  object = {};
+  i = -1;
+  length = keys.length;
+  while (++i &lt; length) {
+    key = keys[i];
+    value = values[i];
+    if (value == null) {
+      continue;
+    }
+    if (object[key] != null) {
+      if (!Array.isArray(object[key])) {
+        object[key] = [object[key]];
+      }
+      object[key].push(value);
+    } else {
+      object[key] = value;
+    }
+  }
+  return object;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.newParser" id="apidoc.element.url-pattern.newParser">
+        function <span class="apidocSignatureSpan">url-pattern.</span>newParser
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">newParser = function (options) {
+  var U;
+  U = {};
+  U.wildcard = P.tag('wildcard', P.string(options.wildcardChar));
+  U.optional = P.tag('optional', P.pick(1, P.string(options.optionalSegmentStartChar), P.lazy(function() {
+    return U.pattern;
+  }), P.string(options.optionalSegmentEndChar)));
+  U.name = P.regex(new RegExp("^[" + options.segmentNameCharset + "]+"));
+  U.named = P.tag('named', P.pick(1, P.string(options.segmentNameStartChar), P.lazy(function() {
+    return U.name;
+  })));
+  U.escapedChar = P.pick(1, P.string(options.escapeChar), P.regex(/^./));
+  U["static"] = P.tag('static', P.concatMany1Till(P.firstChoice(P.lazy(function() {
+    return U.escapedChar;
+  }), P.regex(/^./)), P.firstChoice(P.string(options.segmentNameStartChar), P.string(options.optionalSegmentStartChar), P.string
+(options.optionalSegmentEndChar), U.wildcard)));
+  U.token = P.lazy(function() {
+    return P.firstChoice(U.wildcard, U.optional, U.named, U["static"]);
+  });
+  U.pattern = P.many1(P.lazy(function() {
+    return U.token;
+  }));
+  return U;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.regexGroupCount" id="apidoc.element.url-pattern.regexGroupCount">
+        function <span class="apidocSignatureSpan">url-pattern.</span>regexGroupCount
+        <span class="apidocSignatureSpan">(regex)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">regexGroupCount = function (regex) {
+  return (new RegExp(regex.toString() + '|')).exec('').length - 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.stringConcatMap" id="apidoc.element.url-pattern.stringConcatMap">
+        function <span class="apidocSignatureSpan">url-pattern.</span>stringConcatMap
+        <span class="apidocSignatureSpan">(array, f)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringConcatMap = function (array, f) {
+  var i, length, result;
+  result = '';
+  i = -1;
+  length = array.length;
+  while (++i &lt; length) {
+    result += f(array[i]);
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.stringify" id="apidoc.element.url-pattern.stringify">
+        function <span class="apidocSignatureSpan">url-pattern.</span>stringify
+        <span class="apidocSignatureSpan">(astNode, params, nextIndexes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringify = function (astNode, params, nextIndexes) {
+  if (Array.isArray(astNode)) {
+    return stringConcatMap(astNode, function(node) {
+      return stringify(node, params, nextIndexes);
+    });
+  }
+  switch (astNode.tag) {
+    case 'wildcard':
+      return getParam(params, '_', nextIndexes, true);
+    case 'named':
+      return getParam(params, astNode.value, nextIndexes, true);
+    case 'static':
+      return astNode.value;
+    case 'optional':
+      if (astNodeContainsSegmentsForProvidedParams(astNode.value, params, nextIndexes)) {
+        return stringify(astNode.value, params, nextIndexes);
+      } else {
+        return '';
+      }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+pattern.match('/api/users/10'); // {id: '10'}
+pattern.match('/api/users'); // {}
+pattern.match('/api/products/5'); // null
+```
+
+[generate string from pattern and values:](#stringify-patterns)
+``` javascript
+pattern.<span class="apidocCodeKeywordSpan">stringify</span>() // '/api/users'
+pattern.stringify({id: 20}) // '/api/users/20'
+```
+
+- continuously tested in Node.js (0.12, 4.2.3 and 5.3) and all relevant browsers:
+  [![Sauce Test Status](https://saucelabs.com/browser-matrix/urlpattern.svg)](https://saucelabs.com/u/urlpattern)
+- [tiny single file with just under 500 lines of simple, readable, maintainable code](src/url-pattern.coffee)
+- [huge test suite](test)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.url-pattern.P" id="apidoc.module.url-pattern.P">module url-pattern.P</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.Result" id="apidoc.element.url-pattern.P.Result">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>Result
+        <span class="apidocSignatureSpan">(value, rest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Result = function (value, rest) {
+  this.value = value;
+  this.rest = rest;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.Tagged" id="apidoc.element.url-pattern.P.Tagged">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>Tagged
+        <span class="apidocSignatureSpan">(tag, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Tagged = function (tag, value) {
+  this.tag = tag;
+  this.value = value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.baseMany" id="apidoc.element.url-pattern.P.baseMany">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>baseMany
+        <span class="apidocSignatureSpan">(parser, end, stringResult, atLeastOneResultRequired, input)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">baseMany = function (parser, end, stringResult, atLeastOneResultRequired, input) {
+  var endResult, parserResult, rest, results;
+  rest = input;
+  results = stringResult ? '' : [];
+  while (true) {
+    if (end != null) {
+      endResult = end(rest);
+      if (endResult != null) {
+        break;
+      }
+    }
+    parserResult = parser(rest);
+    if (parserResult == null) {
+      break;
+    }
+    if (stringResult) {
+      results += parserResult.value;
+    } else {
+      results.push(parserResult.value);
+    }
+    rest = parserResult.rest;
+  }
+  if (atLeastOneResultRequired &amp;&amp; results.length === 0) {
+    return;
+  }
+  return new P.Result(results, rest);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.concatMany1Till" id="apidoc.element.url-pattern.P.concatMany1Till">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>concatMany1Till
+        <span class="apidocSignatureSpan">(parser, end)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concatMany1Till = function (parser, end) {
+  return function(input) {
+    return P.baseMany(parser, end, true, true, input);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.firstChoice" id="apidoc.element.url-pattern.P.firstChoice">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>firstChoice
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">firstChoice = function () {
+  var parsers;
+  parsers = 1 &lt;= arguments.length ? slice.call(arguments, 0) : [];
+  return function(input) {
+    var i, length, parser, result;
+    i = -1;
+    length = parsers.length;
+    while (++i &lt; length) {
+      parser = parsers[i];
+      result = parser(input);
+      if (result != null) {
+        return result;
+      }
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.lazy" id="apidoc.element.url-pattern.P.lazy">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>lazy
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lazy = function (fn) {
+  var cached;
+  cached = null;
+  return function(input) {
+    if (cached == null) {
+      cached = fn();
+    }
+    return cached(input);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.many1" id="apidoc.element.url-pattern.P.many1">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>many1
+        <span class="apidocSignatureSpan">(parser)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">many1 = function (parser) {
+  return function(input) {
+    return P.baseMany(parser, null, false, true, input);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.pick" id="apidoc.element.url-pattern.P.pick">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>pick
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pick = function () {
+  var indexes, parsers;
+  indexes = arguments[0], parsers = 2 &lt;= arguments.length ? slice.call(arguments, 1) : [];
+  return function(input) {
+    var array, result;
+    result = P.sequence.apply(P, parsers)(input);
+    if (result == null) {
+      return;
+    }
+    array = result.value;
+    result.value = array[indexes];
+    return result;
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.regex" id="apidoc.element.url-pattern.P.regex">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>regex
+        <span class="apidocSignatureSpan">(regex)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">regex = function (regex) {
+  return function(input) {
+    var matches, result;
+    matches = regex.exec(input);
+    if (matches == null) {
+      return;
+    }
+    result = matches[0];
+    return new P.Result(result, input.slice(result.length));
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.sequence" id="apidoc.element.url-pattern.P.sequence">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>sequence
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sequence = function () {
+  var parsers;
+  parsers = 1 &lt;= arguments.length ? slice.call(arguments, 0) : [];
+  return function(input) {
+    var i, length, parser, rest, result, values;
+    i = -1;
+    length = parsers.length;
+    values = [];
+    rest = input;
+    while (++i &lt; length) {
+      parser = parsers[i];
+      result = parser(rest);
+      if (result == null) {
+        return;
+      }
+      values.push(result.value);
+      rest = result.rest;
+    }
+    return new P.Result(values, rest);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.string" id="apidoc.element.url-pattern.P.string">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>string
+        <span class="apidocSignatureSpan">(string)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">string = function (string) {
+  var length;
+  length = string.length;
+  return function(input) {
+    if (input.slice(0, length) === string) {
+      return new P.Result(string, input.slice(length));
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.P.tag" id="apidoc.element.url-pattern.P.tag">
+        function <span class="apidocSignatureSpan">url-pattern.P.</span>tag
+        <span class="apidocSignatureSpan">(tag, parser)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tag = function (tag, parser) {
+  return function(input) {
+    var result, tagged;
+    result = parser(input);
+    if (result == null) {
+      return;
+    }
+    tagged = new P.Tagged(tag, result.value);
+    return new P.Result(tagged, result.rest);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
