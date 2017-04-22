@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.url-pattern.url-pattern">
+            function <span class="apidocSignatureSpan"></span>url-pattern
+            <span class="apidocSignatureSpan">(arg1, arg2)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.url-pattern.astNodeContainsSegmentsForProvidedParams">
             function <span class="apidocSignatureSpan">url-pattern.</span>astNodeContainsSegmentsForProvidedParams
             <span class="apidocSignatureSpan">(astNode, params, nextIndexes)</span>
@@ -283,6 +292,75 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.url-pattern" id="apidoc.module.url-pattern">module url-pattern</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.url-pattern.url-pattern" id="apidoc.element.url-pattern.url-pattern">
+        function <span class="apidocSignatureSpan"></span>url-pattern
+        <span class="apidocSignatureSpan">(arg1, arg2)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">url-pattern = function (arg1, arg2) {
+  var groupCount, options, parsed, parser, withoutWhitespace;
+  if (arg1 instanceof UrlPattern) {
+    this.isRegex = arg1.isRegex;
+    this.regex = arg1.regex;
+    this.ast = arg1.ast;
+    this.names = arg1.names;
+    return;
+  }
+  this.isRegex = arg1 instanceof RegExp;
+  if (!(('string' === typeof arg1) || this.isRegex)) {
+    throw new TypeError('argument must be a regex or a string');
+  }
+  if (this.isRegex) {
+    this.regex = arg1;
+    if (arg2 != null) {
+      if (!Array.isArray(arg2)) {
+        throw new Error('if first argument is a regex the second argument may be an array of group names but you provided something
+ else');
+      }
+      groupCount = regexGroupCount(this.regex);
+      if (arg2.length !== groupCount) {
+        throw new Error("regex contains " + groupCount + " groups but array of group names contains " + arg2.length);
+      }
+      this.names = arg2;
+    }
+    return;
+  }
+  if (arg1 === '') {
+    throw new Error('argument must not be the empty string');
+  }
+  withoutWhitespace = arg1.replace(/\s+/g, '');
+  if (withoutWhitespace !== arg1) {
+    throw new Error('argument must not contain whitespace');
+  }
+  options = {
+    escapeChar: (arg2 != null ? arg2.escapeChar : void 0) || defaultOptions.escapeChar,
+    segmentNameStartChar: (arg2 != null ? arg2.segmentNameStartChar : void 0) || defaultOptions.segmentNameStartChar,
+    segmentNameCharset: (arg2 != null ? arg2.segmentNameCharset : void 0) || defaultOptions.segmentNameCharset,
+    segmentValueCharset: (arg2 != null ? arg2.segmentValueCharset : void 0) || defaultOptions.segmentValueCharset,
+    optionalSegmentStartChar: (arg2 != null ? arg2.optionalSegmentStartChar : void 0) || defaultOptions.optionalSegmentStartChar
+,
+    optionalSegmentEndChar: (arg2 != null ? arg2.optionalSegmentEndChar : void 0) || defaultOptions.optionalSegmentEndChar,
+    wildcardChar: (arg2 != null ? arg2.wildcardChar : void 0) || defaultOptions.wildcardChar
+  };
+  parser = newParser(options);
+  parsed = parser.pattern(arg1);
+  if (parsed == null) {
+    throw new Error("couldn't parse pattern");
+  }
+  if (parsed.rest !== '') {
+    throw new Error("could only partially parse pattern");
+  }
+  this.ast = parsed.value;
+  this.regex = new RegExp(astNodeToRegexString(this.ast, options.segmentValueCharset));
+  this.names = astNodeToNames(this.ast);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
