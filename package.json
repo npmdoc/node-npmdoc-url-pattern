@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "url-pattern",
-    "description": "api documentation for [url-pattern (v1.0.3)](http://github.com/snd/url-pattern) [![npm package](https://img.shields.io/npm/v/npmdoc-url-pattern.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-url-pattern) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-url-pattern.svg)](https://travis-ci.org/npmdoc/node-npmdoc-url-pattern)",
+    "description": "#### api documentation for  [url-pattern (v1.0.3)](http://github.com/snd/url-pattern)  [![npm package](https://img.shields.io/npm/v/npmdoc-url-pattern.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-url-pattern) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-url-pattern.svg)](https://travis-ci.org/npmdoc/node-npmdoc-url-pattern)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "url-pattern": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.2"
+    "version": "2017.4.23"
 }
